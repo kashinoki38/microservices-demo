@@ -4,14 +4,14 @@ kind: Deployment
 metadata:
   name: queue-master
   labels:
-    name: queue-master
+    app: queue-master
   namespace: sock-shop
 spec:
   replicas: 1
   template:
     metadata:
       labels:
-        name: queue-master
+        app: queue-master
     spec:
       containers:
       - name: queue-master

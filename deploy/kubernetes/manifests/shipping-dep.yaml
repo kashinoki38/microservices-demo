@@ -4,14 +4,14 @@ kind: Deployment
 metadata:
   name: shipping
   labels:
-    name: shipping
+    app: shipping
   namespace: sock-shop
 spec:
   replicas: 1
   template:
     metadata:
       labels:
-        name: shipping
+        app: shipping
     spec:
       containers:
       - name: shipping

@@ -4,7 +4,7 @@ kind: Service
 metadata:
   name: front-end
   labels:
-    name: front-end
+    app: front-end
   namespace: sock-shop
 spec:
   type: LoadBalancer
@@ -13,4 +13,4 @@ spec:
     targetPort: 8079
     nodePort: 30001
   selector:
-    name: front-end
+    app: front-end

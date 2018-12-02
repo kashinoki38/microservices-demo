@@ -4,14 +4,14 @@ kind: Deployment
 metadata:
   name: orders
   labels:
-    name: orders
+    app: orders
   namespace: sock-shop
 spec:
   replicas: 1
   template:
     metadata:
       labels:
-        name: orders
+        app: orders
     spec:
       containers:
       - name: orders
