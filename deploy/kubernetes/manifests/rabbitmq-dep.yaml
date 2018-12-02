@@ -13,7 +13,7 @@ spec:
       labels:
         app: rabbitmq
       annotations:
-        sidecar.istio.io/inject: "false"
+        # sidecar.istio.io/inject: "false"
         prometheus.io/scrape: "false"
     spec:
       containers:
