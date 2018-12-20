@@ -7,15 +7,15 @@ metadata:
 spec:
   podSelector:
     matchLabels:
-      name: rabbitmq
+      app: rabbitmq
   ingress:
     - from:
         - podSelector:
             matchLabels:
-              name: shipping
+              app: shipping
         - podSelector:
             matchLabels:
-              name: queue-master
+              app: queue-master
       ports:
         - protocol: TCP
           port: 5672

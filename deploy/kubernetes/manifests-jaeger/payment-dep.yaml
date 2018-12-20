@@ -4,14 +4,14 @@ kind: Deployment
 metadata:
   name: payment
   labels:
-    name: payment
+    app: payment
   namespace: sock-shop
 spec:
   replicas: 1
   template:
     metadata:
       labels:
-        name: payment
+        app: payment
     spec:
       containers:
       - name: payment

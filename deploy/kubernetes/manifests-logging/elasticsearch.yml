@@ -4,14 +4,14 @@ kind: Deployment
 metadata:
   name: elasticsearch
   labels:
-    name: elasticsearch
+    app: elasticsearch
   namespace: kube-system
 spec:
   replicas: 1
   template:
     metadata:
       labels:
-        name: elasticsearch
+        app: elasticsearch
     spec:
       containers:
        - image: elasticsearch
@@ -27,11 +27,11 @@ kind: Service
 metadata:
   name: elasticsearch
   labels:
-    name: elasticsearch
+    app: elasticsearch
   namespace: kube-system
 spec:
   ports:
   - port: 9200
     targetPort: 9200
   selector:
-    name: elasticsearch
+    app: elasticsearch

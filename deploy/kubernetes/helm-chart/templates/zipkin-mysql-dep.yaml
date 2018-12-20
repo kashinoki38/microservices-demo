@@ -4,13 +4,13 @@ kind: Deployment
 metadata:
   name: zipkin-mysql
   labels:
-    name: zipkin-mysql
+    app: zipkin-mysql
 spec:
   replicas: 1
   template:
     metadata:
       labels:
-        name: zipkin-mysql
+        app: zipkin-mysql
     spec:
       containers:
       - name: zipkin-mysql

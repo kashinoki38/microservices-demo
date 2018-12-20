@@ -7,12 +7,12 @@ metadata:
 spec:
   podSelector:
     matchLabels:
-      name: catalogue
+      app: catalogue
   ingress:
     - from:
         - podSelector:
             matchLabels:
-              name: front-end
+              app: front-end
       ports:
         - protocol: TCP
           port: 80

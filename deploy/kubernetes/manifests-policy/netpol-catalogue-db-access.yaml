@@ -7,12 +7,12 @@ metadata:
 spec:
   podSelector:
     matchLabels:
-      name: catalogue-db
+      app: catalogue-db
   ingress:
     - from:
         - podSelector:
             matchLabels:
-              name: catalogue
+              app: catalogue
       ports:
         - protocol: TCP
           port: 3306

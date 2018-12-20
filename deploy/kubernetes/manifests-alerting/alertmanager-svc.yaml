@@ -5,7 +5,7 @@ metadata:
     prometheus.io/scrape: 'true'
     prometheus.io/path: '/alertmanager/metrics'
   labels:
-    name: alertmanager
+    app: alertmanager
   name: alertmanager
 spec:
   selector:

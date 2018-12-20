@@ -7,12 +7,12 @@ metadata:
 spec:
   podSelector:
     matchLabels:
-      name: orders-db
+      app: orders-db
   ingress:
     - from:
         - podSelector:
             matchLabels:
-              name: orders
+              app: orders
       ports:
         - protocol: TCP
           port: 27017

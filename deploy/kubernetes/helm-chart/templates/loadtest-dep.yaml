@@ -4,13 +4,13 @@ kind: Deployment
 metadata:
   name: load-test
   labels:
-    name: load-test
+    app: load-test
 spec:
   replicas: {{ .Values.loadtest.replicas }}
   template:
     metadata:
       labels:
-        name: load-test
+        app: load-test
     spec:
       containers:
       - name: load-test

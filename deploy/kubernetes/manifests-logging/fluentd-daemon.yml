@@ -10,11 +10,11 @@ metadata:
 spec:
   selector:
     matchLabels:
-      name: fluentd
+      app: fluentd
   template:
     metadata:
       labels:
-        name: fluentd
+        app: fluentd
     spec:
       serviceAccountName: fluentd
       containers:

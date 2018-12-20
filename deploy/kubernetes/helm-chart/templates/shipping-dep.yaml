@@ -4,13 +4,13 @@ kind: Deployment
 metadata:
   name: shipping
   labels:
-    name: shipping
+    app: shipping
 spec:
   replicas: 1
   template:
     metadata:
       labels:
-        name: shipping
+        app: shipping
     spec:
       containers:
       - name: shipping

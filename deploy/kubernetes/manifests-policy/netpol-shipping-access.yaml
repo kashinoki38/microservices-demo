@@ -7,12 +7,12 @@ metadata:
 spec:
   podSelector:
     matchLabels:
-      name: shipping
+      app: shipping
   ingress:
     - from:
         - podSelector:
             matchLabels:
-              name: orders
+              app: orders
       ports:
         - protocol: TCP
           port: 80

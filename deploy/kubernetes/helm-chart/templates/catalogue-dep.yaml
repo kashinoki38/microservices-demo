@@ -4,13 +4,13 @@ kind: Deployment
 metadata:
   name: catalogue
   labels:
-    name: catalogue
+    app: catalogue
 spec:
   replicas: 1
   template:
     metadata:
       labels:
-        name: catalogue
+        app: catalogue
     spec:
       containers:
       - name: catalogue

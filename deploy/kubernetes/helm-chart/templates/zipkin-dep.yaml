@@ -4,13 +4,13 @@ kind: Deployment
 metadata:
   name: zipkin
   labels:
-    name: zipkin
+    app: zipkin
 spec:
   replicas: 1
   template:
     metadata:
       labels:
-        name: zipkin
+        app: zipkin
     spec:
       containers:
       - name: zipkin

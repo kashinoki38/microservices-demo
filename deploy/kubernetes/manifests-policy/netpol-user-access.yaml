@@ -7,15 +7,15 @@ metadata:
 spec:
   podSelector:
     matchLabels:
-      name: user
+      app: user
   ingress:
     - from:
         - podSelector:
             matchLabels:
-              name: front-end
+              app: front-end
         - podSelector:
             matchLabels:
-              name: orders
+              app: orders
       ports:
         - protocol: TCP
           port: 80

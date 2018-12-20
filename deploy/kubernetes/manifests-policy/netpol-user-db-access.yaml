@@ -7,12 +7,12 @@ metadata:
 spec:
   podSelector:
     matchLabels:
-      name: user-db
+      app: user-db
   ingress:
     - from:
         - podSelector:
             matchLabels:
-              name: user
+              app: user
       ports:
         - protocol: TCP
           port: 27017

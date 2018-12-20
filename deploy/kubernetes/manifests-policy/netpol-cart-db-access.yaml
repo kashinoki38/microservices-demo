@@ -7,12 +7,12 @@ metadata:
 spec:
   podSelector:
     matchLabels:
-      name: carts-db
+      app: carts-db
   ingress:
     - from:
         - podSelector:
             matchLabels:
-              name: cart
+              app: cart
       ports:
         - protocol: TCP
           port: 27017

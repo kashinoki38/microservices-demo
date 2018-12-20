@@ -4,7 +4,7 @@ kind: Service
 metadata:
   name: zipkin
   labels:
-    name: zipkin
+    app: zipkin
 spec:
   type: NodePort
   ports:
@@ -13,5 +13,5 @@ spec:
     targetPort: 9411
     nodePort: 30002
   selector:
-    name: zipkin
+    app: zipkin
 {{- end -}}

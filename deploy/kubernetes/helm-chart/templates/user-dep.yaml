@@ -4,13 +4,13 @@ kind: Deployment
 metadata:
   name: user
   labels:
-    name: user
+    app: user
 spec:
   replicas: 1
   template:
     metadata:
       labels:
-        name: user
+        app: user
     spec:
       containers:
       - name: user

@@ -4,12 +4,12 @@ kind: Service
 metadata:
   name: user
   labels:
-    name: user
+    app: user
 spec:
   ports:
     # the port that this service should serve on
   - port: 80
     targetPort: 80
   selector:
-    name: user
+    app: user
 
