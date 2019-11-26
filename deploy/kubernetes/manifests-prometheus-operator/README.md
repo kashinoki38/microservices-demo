@@ -55,7 +55,7 @@ kubectl apply -f deploy/kubernetes/manifests-prometheus-operator/00_prometheus-k
 Open a session in the prometheus instance to see if new monitoring targets are initialized.
 
 ```bash
-kubectl -n monitoring port-forward svc/promehteus-oprated 29090:9090
+kubectl -n monitoring port-forward svc/promehteus-operated 29090:9090
 ```
 
 * <http://localhost:29090/targets>
@@ -86,7 +86,7 @@ kubectl apply -f deploy/kubernetes/manifests-prometheus-operator/prometheus-loca
 Open a session in the prometheus instance to see if new monitoring targets are initialized.
 
 ```bash
-kubectl -n sock-shop port-forward svc/promehteus-oprated 19090:9090
+kubectl -n sock-shop port-forward svc/promehteus-operated 19090:9090
 ```
 
 * <http://localhost:19090/targets>
