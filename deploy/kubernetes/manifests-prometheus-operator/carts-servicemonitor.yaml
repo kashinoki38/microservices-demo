@@ -3,8 +3,8 @@ kind: ServiceMonitor
 metadata:
   name: carts
   labels:
-    app: microservices-demo
-    component: carts
+    release: microservices-demo
+    app: carts
   namespace: sock-shop
 spec:
   jobLabel: carts-metrics

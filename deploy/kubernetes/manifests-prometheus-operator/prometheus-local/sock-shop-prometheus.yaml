@@ -58,7 +58,7 @@ spec:
   serviceAccountName: prometheus
   serviceMonitorSelector:
     matchLabels:
-      app: microservices-demo
+      release: microservices-demo
   ruleSelector:
     matchLabels:
       role: alert-rules

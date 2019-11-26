@@ -3,8 +3,8 @@ kind: ServiceMonitor
 metadata:
   name: catalogue
   labels:
-    app: microservices-demo
-    component: catalogue
+    release: microservices-demo
+    app: catalogue
   namespace: sock-shop
 spec:
   jobLabel: catalogue-metrics

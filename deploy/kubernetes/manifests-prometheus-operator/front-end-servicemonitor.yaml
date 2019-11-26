@@ -3,8 +3,8 @@ kind: ServiceMonitor
 metadata:
   name: front-end
   labels:
-    app: microservices-demo
-    component: front-end
+    release: microservices-demo
+    app: front-end
   namespace: sock-shop
 spec:
   jobLabel: front-end-metrics
