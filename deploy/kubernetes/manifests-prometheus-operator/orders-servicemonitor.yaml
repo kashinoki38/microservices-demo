@@ -3,7 +3,8 @@ kind: ServiceMonitor
 metadata:
   name: orders
   labels:
-    app: orders
+    app: microservices-demo
+    component: orders
   namespace: sock-shop
 spec:
   jobLabel: orders-metrics

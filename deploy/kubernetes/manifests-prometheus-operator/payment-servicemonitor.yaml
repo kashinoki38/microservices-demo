@@ -3,7 +3,8 @@ kind: ServiceMonitor
 metadata:
   name: payment
   labels:
-    app: payment
+    app: microservices-demo
+    component: payment
   namespace: sock-shop
 spec:
   jobLabel: payment-metrics

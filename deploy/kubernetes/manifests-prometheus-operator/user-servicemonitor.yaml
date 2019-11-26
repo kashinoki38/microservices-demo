@@ -3,7 +3,8 @@ kind: ServiceMonitor
 metadata:
   name: user
   labels:
-    app: user
+    app: microservices-demo
+    component: user
   namespace: sock-shop
 spec:
   jobLabel: user-metrics

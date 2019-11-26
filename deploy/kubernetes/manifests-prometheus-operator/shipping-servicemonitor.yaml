@@ -3,7 +3,8 @@ kind: ServiceMonitor
 metadata:
   name: shipping
   labels:
-    app: shipping
+    app: microservices-demo
+    component: shipping
   namespace: sock-shop
 spec:
   jobLabel: shipping-metrics
