@@ -1,0 +1,19 @@
+apiVersion: monitoring.coreos.com/v1
+kind: ServiceMonitor
+metadata:
+  name: orders
+  labels:
+    release: microservices-demo
+    app: orders
+  namespace: sock-shop
+spec:
+  jobLabel: orders-metrics
+  selector:
+    matchLabels:
+      app: orders
+  namespaceSelector:
+    matchNames:
+    - sock-shop
+  endpoints:
+  - targetPort: 80
+    path: /metrics

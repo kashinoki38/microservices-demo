@@ -1,0 +1,19 @@
+apiVersion: monitoring.coreos.com/v1
+kind: ServiceMonitor
+metadata:
+  name: payment
+  labels:
+    release: microservices-demo
+    app: payment
+  namespace: sock-shop
+spec:
+  jobLabel: payment-metrics
+  selector:
+    matchLabels:
+      app: payment
+  namespaceSelector:
+    matchNames:
+    - sock-shop
+  endpoints:
+  - targetPort: 80
+    path: /metrics

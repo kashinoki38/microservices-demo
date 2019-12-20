@@ -1,0 +1,19 @@
+apiVersion: monitoring.coreos.com/v1
+kind: ServiceMonitor
+metadata:
+  name: carts
+  labels:
+    release: microservices-demo
+    app: carts
+  namespace: sock-shop
+spec:
+  jobLabel: carts-metrics
+  selector:
+    matchLabels:
+      app: carts
+  namespaceSelector:
+    matchNames:
+    - sock-shop
+  endpoints:
+  - targetPort: 80
+    path: /metrics

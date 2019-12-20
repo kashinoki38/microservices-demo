@@ -1,0 +1,19 @@
+apiVersion: monitoring.coreos.com/v1
+kind: ServiceMonitor
+metadata:
+  name: catalogue
+  labels:
+    release: microservices-demo
+    app: catalogue
+  namespace: sock-shop
+spec:
+  jobLabel: catalogue-metrics
+  selector:
+    matchLabels:
+      app: catalogue
+  namespaceSelector:
+    matchNames:
+    - sock-shop
+  endpoints:
+  - targetPort: 80
+    path: /metrics
