@@ -1,5 +1,5 @@
 ---
-apiVersion: extensions/v1beta1
+apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: catalogue-db
@@ -9,10 +9,12 @@ metadata:
   namespace: sock-shop
 spec:
   replicas: 1
+  selector:
+    matchLabels:
+      app: catalogue-db
   template:
     metadata:
       labels:
-        name: catalogue-db
         app: catalogue-db
     spec:
       containers:

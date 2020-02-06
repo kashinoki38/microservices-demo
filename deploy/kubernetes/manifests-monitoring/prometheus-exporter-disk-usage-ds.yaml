@@ -1,5 +1,8 @@
-apiVersion: extensions/v1beta1
+apiVersion: apps/v1
 kind: DaemonSet
+selector:
+    matchLabels:
+      app: node-directory-size-metrics
 metadata:
   name: node-directory-size-metrics
   namespace: monitoring
