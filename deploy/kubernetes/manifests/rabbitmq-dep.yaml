@@ -17,6 +17,7 @@ spec:
         app: rabbitmq
       annotations:
         # sidecar.istio.io/inject: "false"
+        sidecar.istio.io/proxyCPU: "10m"
         prometheus.io/scrape: "false"
     spec:
       containers:
