@@ -15,6 +15,8 @@ spec:
     metadata:
       labels:
         app: user-db
+      annotations:
+        sidecar.istio.io/proxyCPU: "10m"
     spec:
       containers:
       - name: user-db

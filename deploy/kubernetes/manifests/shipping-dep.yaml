@@ -15,6 +15,8 @@ spec:
     metadata:
       labels:
         app: shipping
+      annotations:
+        sidecar.istio.io/proxyCPU: "10m"
     spec:
       containers:
       - name: shipping

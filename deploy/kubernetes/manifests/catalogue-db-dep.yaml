@@ -16,6 +16,8 @@ spec:
     metadata:
       labels:
         app: catalogue-db
+      annotations:
+        sidecar.istio.io/proxyCPU: "10m"
     spec:
       containers:
       - name: catalogue-db

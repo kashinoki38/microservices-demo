@@ -17,6 +17,7 @@ spec:
         app: session-db
       annotations:
         prometheus.io.scrape: "false"
+        sidecar.istio.io/proxyCPU: "10m"
     spec:
       containers:
       - name: session-db
