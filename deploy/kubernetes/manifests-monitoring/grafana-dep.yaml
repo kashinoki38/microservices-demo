@@ -18,7 +18,7 @@ spec:
         component: core
     spec:
       containers:
-      - image: grafana/grafana:4.1.2
+      - image: grafana/grafana:7.0.1
         name: grafana-core
         imagePullPolicy: IfNotPresent
         # env:
@@ -49,9 +49,13 @@ spec:
           # timeoutSeconds: 1
         volumeMounts:
         - name: grafana-persistent-storage
-          mountPath: /var
+          mountPath: /var/lib/grafana
       volumes:
       - name: grafana-persistent-storage
         emptyDir: {}
       nodeSelector:
         beta.kubernetes.io/os: linux
+      securityContext:
+        runAsNonRoot: true
+        runAsUser: 65534
+        fsGroup: 472
