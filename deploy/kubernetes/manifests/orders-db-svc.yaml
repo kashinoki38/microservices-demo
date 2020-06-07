@@ -9,7 +9,9 @@ metadata:
 spec:
   ports:
     # the port that this service should serve on
-  - port: 27017
-    targetPort: 27017
+    - name: mongo-orders-db
+      protocol: TCP
+      port: 27017
+      targetPort: 27017
   selector:
     app: orders-db
