@@ -1,18 +1,19 @@
 apiVersion: apps/v1
-kind: Deployment
+kind: StatefulSet
 metadata:
   name: prometheus-deployment
   namespace: monitoring
 spec:
+  serviceName: prometheus
   replicas: 1
   selector:
     matchLabels:
       app: prometheus
-  strategy:
-    rollingUpdate:
-      maxSurge: 0
-      maxUnavailable: 1
-    type: RollingUpdate
+  # strategy:
+  #   rollingUpdate:
+  #     maxSurge: 0
+  #     maxUnavailable: 1
+  #   type: RollingUpdate
   selector:
     matchLabels:
       app: prometheus
@@ -40,6 +41,8 @@ spec:
           mountPath: /etc/prometheus
         - name: alertrules-volume
           mountPath: /etc/prometheus-rules
+        - name: prometheus-pv
+          mountPath: /prometheus/data
       volumes:
       - name: config-volume
         configMap:
@@ -47,5 +50,21 @@ spec:
       - name: alertrules-volume
         configMap:
           name: prometheus-alertrules
+      - name: prometheus-pv
+        persistentVolumeClaim:
+          claimName: cn-horiuchiysh-prometheus-pvc-prometheus-deployment-0
       nodeSelector:
         beta.kubernetes.io/os: linux
+  volumeClaimTemplates:
+    - metadata:
+        name: cn-horiuchiysh-prometheus-pvc
+      spec:
+        storageClassName: manual
+        selector:
+          matchLabels:
+            objective: prometheus
+        accessModes:
+          - ReadWriteOnce
+        resources:
+          requests:
+            storage: 40Gi

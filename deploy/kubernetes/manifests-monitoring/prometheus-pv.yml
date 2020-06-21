@@ -1,0 +1,18 @@
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: cn-horiuchiysh-prometheus-pv
+  labels:
+    type: gce-pv
+    objective: prometheus
+    environment: dev
+spec:
+  capacity:
+    storage: 40Gi
+  accessModes:
+    - ReadWriteOnce
+  persistentVolumeReclaimPolicy: Retain
+  storageClassName: manual
+  gcePersistentDisk:
+    pdName: cn-horiuchiysh-sockshop1-pv
+    fsType: ext4
