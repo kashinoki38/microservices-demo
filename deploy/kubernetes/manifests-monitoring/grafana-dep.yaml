@@ -1,5 +1,5 @@
 apiVersion: apps/v1
-kind: Deployment
+kind: StatefulSet
 metadata:
   name: grafana-core
   namespace: monitoring
@@ -7,6 +7,7 @@ metadata:
     app: grafana
     component: core
 spec:
+  serviceName: grafana
   replicas: 1
   selector:
     matchLabels:
@@ -52,10 +53,24 @@ spec:
           mountPath: /var/lib/grafana
       volumes:
       - name: grafana-persistent-storage
-        emptyDir: {}
+        persistentVolumeClaim:
+          claimName: cn-horiuchiysh-grafana-pvc-grafana-core-0
       nodeSelector:
         beta.kubernetes.io/os: linux
       securityContext:
         runAsNonRoot: true
         runAsUser: 65534
         fsGroup: 472
+  volumeClaimTemplates:
+    - metadata:
+        name: cn-horiuchiysh-grafana-pvc
+      spec:
+        storageClassName: manual
+        selector:
+          matchLabels:
+            objective: grafana
+        accessModes:
+          - ReadWriteOnce
+        resources:
+          requests:
+            storage: 20Gi

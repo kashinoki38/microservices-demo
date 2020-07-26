@@ -1,0 +1,18 @@
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: cn-horiuchiysh-grafana-pv
+  labels:
+    type: gce-pv
+    objective: grafana
+    environment: dev
+spec:
+  capacity:
+    storage: 20Gi
+  accessModes:
+    - ReadWriteOnce
+  persistentVolumeReclaimPolicy: Retain
+  storageClassName: manual
+  gcePersistentDisk:
+    pdName: cn-horiuchiysh-sockshop1-pv2
+    fsType: ext4
