@@ -102,15 +102,15 @@ data:
         bearer_token_file: /var/run/secrets/kubernetes.io/serviceaccount/token
         relabel_configs:
           - target_label: __scheme__
-            replacement: https
+            replacement: http
           - source_labels:
               - __meta_kubernetes_node_label_kubernetes_io_hostname
             target_label: instance
-          # - source_labels: __address__
-          #   action: replace
-          #   target_label: __address__
-          #   regex: '^(.+)(?::\d+);(\d+)$'
-          #   replacement: '$1:10255'
+          - source_labels: [__address__]
+            action: replace
+            target_label: __address__
+            regex: '^(.+?)(?::\d+)?$'
+            replacement: '$1:10255'
       - job_name: weave
         kubernetes_sd_configs:
           - role: pod
