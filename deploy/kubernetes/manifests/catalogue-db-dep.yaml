@@ -30,5 +30,15 @@ spec:
         ports:
         - name: mysql
           containerPort: 3306
+      - name: mysqld-exporter
+        image: prom/mysqld-exporter
+        env:
+        - name: DATA_SOURCE_NAME
+          valueFrom:
+            secretKeyRef:
+              name: mysql-ex-secret
+              key: password
+        ports:
+        - containerPort: 9104
       nodeSelector:
         beta.kubernetes.io/os: linux
