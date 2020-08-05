@@ -37,10 +37,10 @@ spec:
         - mountPath: /tmp
           name: tmp-volume
       - name: mongodb-exporter
-        image: eses/mongodb_exporter
+        image: bitnami/mongodb-exporter
         imagePullPolicy: IfNotPresent
         ports:
-        - containerPort: 9104
+        - containerPort: 9216
           protocol: TCP
         resources: {}
         terminationMessagePath: /dev/termination-log

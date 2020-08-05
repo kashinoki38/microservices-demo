@@ -36,6 +36,15 @@ spec:
         volumeMounts:
         - mountPath: /tmp
           name: tmp-volume
+      - name: mongodb-exporter
+        image: bitnami/mongodb-exporter
+        imagePullPolicy: IfNotPresent
+        ports:
+        - containerPort: 9216
+          protocol: TCP
+        resources: {}
+        terminationMessagePath: /dev/termination-log
+        terminationMessagePolicy: File
       volumes:
         - name: tmp-volume
           emptyDir:
