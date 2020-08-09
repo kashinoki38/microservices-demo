@@ -9,8 +9,10 @@ image:
 ## Specify entries of `process_names:` in the process-expoter config
 ## See https://github.com/ncabatoff/process-exporter/tree/master#using-a-config-file
 groups:
-- comm:
-  - .+
+# - comm:
+  # - .+
+  # cmdline:
+  # - .+
 # - comm:
 #   - bash
 # - comm:
@@ -19,7 +21,10 @@ groups:
 #   - scp
 # - comm:
 #   - ssh
-- cmdline:
+- name: "{{.Comm}}:{{.Matches}}"
+  cmdline:
+  - .+
+- exe:
   - .+
 
 ## Creates a Prometheus Operator ServiceMonitor
